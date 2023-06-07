@@ -1,0 +1,46 @@
+<a routerLink="/products/create">Add</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Desc</th>
+      <th scope="col">view detail</th>
+      <th scope="col">Active</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of products; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ item.name }}</td>
+      <td>{{ item.price }}</td>
+      <td>{{ item.desc }}</td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-primary"
+          routerLink="/detail/{{ item.id }}"
+        >
+          view detail
+        </button>
+      </td>
+      <td>
+        <button
+          (click)="onRemove(item.id!)"
+          type="button"
+          class="btn btn-danger"
+        >
+          ReMove
+        </button>
+        <button
+          type="button"
+          routerLink="/products/update/{{ item.id }}"
+          class="btn btn-success"
+        >
+          Edit
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

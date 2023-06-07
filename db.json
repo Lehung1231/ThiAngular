@@ -17,6 +17,12 @@
       "name": "Product C",
       "price": 400,
       "desc": "mo ta san pham C"
+    },
+    {
+      "name": "Product C",
+      "price": 400,
+      "desc": "mo ta san pham C update",
+      "id": "W-82XDv"
     }
   ]
 }

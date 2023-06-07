@@ -1,0 +1,71 @@
+<h1>Update</h1>
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      placeholder="Enter name"
+      formControlName="name"
+      required
+    />
+    <div
+      *ngIf="
+        (form.get('name')?.hasError('required') ||
+          form.get('name')?.hasError('minlength') ||
+          form.get('name')?.hasError('maxlength')) &&
+        (form.get('name')?.dirty || form.get('name')?.touched || submitted)
+      "
+      class="text-red-500 text-xs mt-1"
+    >
+      Name is required and must have at least 6 characters và không quá 255 ký
+      tự.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input
+      type="number"
+      class="form-control"
+      id="price"
+      placeholder="Enter price"
+      formControlName="price"
+      required
+    />
+  </div>
+  <div
+    *ngIf="
+      (form.get('price')?.hasError('required') ||
+        form.get('price')?.hasError('min')) &&
+      (form.get('price')?.dirty || form.get('price')?.touched || submitted)
+    "
+    class="text-red-500 text-xs mt-1"
+  >
+    Price is required and must be greater than 0.
+  </div>
+
+  <div class="form-group">
+    <label for="desc">Desc</label>
+    <input
+      type="text"
+      class="form-control"
+      id="desc"
+      placeholder="Enter desc"
+      formControlName="desc"
+      required
+    />
+    <div
+      *ngIf="
+        (form.get('desc')?.hasError('required') ||
+          form.get('desc')?.hasError('minlength') ||
+          form.get('desc')?.hasError('maxlength')) &&
+        (form.get('desc')?.dirty || form.get('desc')?.touched || submitted)
+      "
+      class="text-red-500 text-xs mt-1"
+    >
+      Desc is required min 6 max 255
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
