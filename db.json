@@ -13,16 +13,10 @@
       "desc": "mo ta san pham B"
     },
     {
-      "id": "Nk-nIMQ",
       "name": "Product C",
       "price": 400,
-      "desc": "mo ta san pham C"
-    },
-    {
-      "name": "Product C",
-      "price": 400,
-      "desc": "mo ta san pham C update",
-      "id": "W-82XDv"
+      "desc": "mo ta san pham C",
+      "id": "Nk-nIMQ"
     }
   ]
 }

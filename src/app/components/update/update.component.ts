@@ -13,12 +13,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./update.component.css'],
 })
 export class UpdateComponent {
+  id!: string;
   constructor(
     private productService: ProductService,
     private activatedRoute: ActivatedRoute
   ) {
     this.activatedRoute.params.subscribe((param) => {
       const { id } = param;
+      this.id = id;
       this.productService.getProductById(id!).subscribe((data) => {
         console.log(data);
         this.form.patchValue(data);
@@ -46,9 +48,11 @@ export class UpdateComponent {
     this.submitted = true;
     if (this.form.valid) {
       console.log(this.form.value);
-      this.productService.createProduct(this.form.value).subscribe((data) => {
-        console.log(data);
-      });
+      this.productService
+        .updateProduct(this.id, this.form.value)
+        .subscribe((data) => {
+          console.log(data);
+        });
     }
   }
 }
